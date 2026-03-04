@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Outsourcing Support SAS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root{--g:#2e7d32;
 --gl:#4caf50;
@@ -107,8 +108,19 @@ nav{
   
         .hamburger span{display:block;width:24px;height:2px;background:var(--md)}
   
-      .hero{min-height:100vh;background:linear-gradient(160deg,rgba(21,101,192,.83),rgba(46,125,50,.73)),url('imagenes/Untitled\ design\ \(1\).png') center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 100px;position:relative}
-  
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(160deg,rgba(21,101,192,.83),rgba(46,125,50,.73)),
+    url('imagenes/interna-inversiom-de-invernaderos.webp') center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 5% 100px;
+  position:relative;
+}  
         .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--cr))}
   
         .hero-tag{font-size:12px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:18px}
@@ -236,25 +248,73 @@ nav{
   object-fit: cover;
   display: block;
 }
-.about{
-  background:var(--wh);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center
-}
-/* Imagen sección Nosotros */
-.about-img{
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:var(--sh);
+.pdf-section{
+  padding:60px 20px;
+  background:#f5f7f2;
+  text-align:center;
 }
 
-.about-img img{
+.pdf-section h2{
+  margin-bottom:10px;
+  color:#2e7d32;
+}
+
+.pdf-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  margin-top:25px;
+}
+
+.pdf-btn{
+  display:inline-block;
+  padding:12px 20px;
+  background:#1565c0;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  transition:0.3s;
+  font-weight:500;
+}
+
+.pdf-btn:hover{
+  background:#0d47a1;
+  transform:translateY(-3px);
+}
+.about{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:60px 20px;
+  flex-wrap:wrap;
+}
+
+.about > div{
+  flex:1;
+  min-width:300px;
+}
+
+.about img{
+  flex:1;
+  max-width:500px;
   width:100%;
-  height:440px;
-  object-fit:cover;
-  display:block;
+  height:auto;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* 📱 Responsive para celular */
+@media (max-width:768px){
+  .about{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .about img{
+    margin-top:30px;
+  }
 }
 </style>
 </head>
@@ -264,7 +324,8 @@ nav{
 <a class="nav-logo" href="#">
   <img src="imagenes/Untitled design (1).png" alt="Outsourcing Support Logo" class="logo-img">
   <div class="nav-brand">
-
+    <strong>Outsourcing Support</strong>
+    <span>S.A.S</span>
   </div>
 </a>  <ul class="nav-links" id="nl">
     <li><a href="#nosotros">Nosotros</a></li>
@@ -284,25 +345,12 @@ nav{
   </div>
 </header>
 <section id="nosotros" class="about">
-
-  <div class="about-text">
+  <div>
     <p class="lbl">Quiénes Somos</p>
     <h2 class="ttl">Empresa especializada<br>en el sector floricultor</h2>
-
-    <p class="bod">
-      Empresa creada con el propósito de brindar soluciones completas e integrales para el sector de la floricultura y sectores afines. 
-      Brindamos servicios que permiten a nuestros clientes <strong>controlar sus costos</strong> y ofrecemos asesorías para identificar mejoras en los procesos, logrando <strong>optimizar sus recursos</strong>.
-    </p>
-
-    <p class="bod" style="margin-top:14px">
-      Contamos con la implementación del <strong>Sistema de Gestión de Seguridad y Salud en el Trabajo (SG-SST)</strong> 
-      y con el Procedimiento para Protección de Caídas en Trabajos de Alturas.
-    </p>
-
-    <p class="bod" style="margin-top:14px">
-      Todo nuestro personal que realiza trabajo en alturas cuenta con <strong>certificado vigente</strong> y coordinadores certificados.
-    </p>
-
+    <p class="bod">Empresa creada con el propósito de brindar soluciones completas e integrales para el sector de la floricultura y sectores afines. Brindamos servicios que permiten a nuestros clientes <strong>controlar sus costos</strong> y ofrecemos asesorías para identificar mejoras en los procesos, logrando <strong>optimizar sus recursos</strong>.</p>
+    <p class="bod" style="margin-top:14px">Contamos con la implementación del <strong>Sistema de Gestión de Seguridad y Salud en el Trabajo (SG-SST)</strong> y con el Procedimiento para Protección de Caídas en Trabajos de Alturas. El personal que realiza las diferentes actividades cuenta con cobertura de acuerdo a la legislación vigente.</p>
+    <p class="bod" style="margin-top:14px">Todo nuestro personal que realiza trabajo en alturas cuenta con <strong>certificado vigente</strong> y tenemos coordinadores igualmente certificados.</p>
     <div class="badges">
       <div class="badge">SG-SST Implementado</div>
       <div class="badge">Alturas Certificado</div>
@@ -310,11 +358,7 @@ nav{
       <div class="badge">Coordinadores Certificados</div>
     </div>
   </div>
-
-  <div class="about-img">
-    <img src="imagenes/imagen.png" alt="Equipo trabajando en invernadero">
-  </div>
-
+  <img src="imagenes/imagen.png" alt="">
 </section>
 <section id="pilares" class="pillars">
   <div class="pillars-hd">
@@ -331,12 +375,12 @@ nav{
 </section>
 <section id="servicios" class="services">
   <div class="srv-hd">
-    <p class="lbl">Portafolio de Servicios 2025</p>
+    <p class="lbl">Portafolio de Servicios</p>
     <h2 class="ttl">Todo lo que necesita<br>su operación</h2>
   </div>
 <div class="srow">
   <div class="simg">
-    <img src="imagenes/lineasdevida.png" alt="Instalación de líneas de vida en invernadero">
+    <img src="imagenes/lineasdevida-.png" alt="Instalación de líneas de vida en invernadero">
   </div>
 
   <div class="stxt">
@@ -374,7 +418,7 @@ nav{
     </div>
   </div>
   <div class="srow">
-    <div class="simg"><img src="imagenes/CAMAS.png" alt=""></div>
+    <div class="simg"><img src="imagenes/camasinv.png" alt=""></div>
     <div class="stxt">
       <span class="stag">Floricultura</span>
       <h3>Preparación y Mantenimiento de Camas</h3>
@@ -390,7 +434,7 @@ nav{
     </div>
   </div>
   <div class="srow rev">
-    <div class="simg"><img src="imagenes/mantenimiento.png" alt=""></div>
+    <div class="simg"><img src="imagenes/manteniinv.png" alt=""></div>
     <div class="stxt">
       <span class="stag">Infraestructura</span>
       <h3>Mantenimiento de Invernaderos</h3>
@@ -439,6 +483,29 @@ nav{
   <p>Solicite una asesoría personalizada sin costo y descubra cómo podemos ayudarle.</p>
   <a class="btn btn-w" href="#contacto">Solicitar Asesoría</a>
 </section>
+<section id="politicas" class="pdf-section">
+  <h2>Políticas Institucionales</h2>
+  <p>Consulte nuestras políticas oficiales en formato PDF:</p>
+
+  <div class="pdf-container">
+    <a href="pdfs/POLITICA PREVENCION AL ACOSO LABORAL.pdf" target="_blank" class="pdf-btn">
+      📄 Política de Prevención al Acoso Laboral
+    </a>
+
+<a href="pdfs/POLITICA INTEGRAL DE SEGURIDAD Y SALUD EN EL TRABAJO Y PREVENCION SUSTANCIA PSICOACTIVAS.pdf" 
+   target="_blank" 
+   class="pdf-btn">
+   📄 Política Integral de Seguridad y Salud
+</a>
+    <a href="pdfs/POLITICA DE ACOSO SEXUAL.pdf" target="_blank" class="pdf-btn">
+      📄 Política de Acoso Sexual
+    </a>
+
+    <a href="pdfs/POLITICA DE DESCONEXION LABORAL.pdf" target="_blank" class="pdf-btn">
+      📄 Política de Desconexión Laboral
+    </a>
+  </div>
+</section>
 <section id="contacto" class="contact">
   <div>
     <h2>Contáctenos</h2>
@@ -452,6 +519,7 @@ nav{
     </div>
   </div>
 </section>
+
 <footer>
   <p>Copyright © 2025 <strong>Outsourcing Support S.A.S</strong> — Nuestras Acciones son sus Soluciones | Facatativá, Colombia</p>
 </footer>
