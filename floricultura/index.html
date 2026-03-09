@@ -25,82 +25,120 @@ body{
 color:var(--dk);
 background:var(--cr)}
 
+/* Barra de progreso */
 #bar{
   position:fixed;
   top:0;
   left:0;
   height:4px;
   width:0;
-  background:linear-gradient(90deg,
-  var(--g),
-  var(--bl));z-index:9999}
+  background:linear-gradient(90deg,var(--g),var(--bl));
+  z-index:9999;
+}
 
+/* NAVBAR */
 nav{
   position:fixed;
   top:4px;
-  left:0;right:0;
+  left:0;
+  right:0;
   z-index:500;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 4%;
-  height:76px;
+  padding:0 6%;
+  height:95px; /* más alto para que el logo respire */
   background:rgba(255,255,255,.97);
-  box-shadow:0 2px 24px rgba(0,0,0,.09)}
+  box-shadow:0 2px 24px rgba(0,0,0,.09);
+}
 
-    .nav-logo{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none}
+/* Logo contenedor */
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  text-decoration:none;
+}
 
-      .logo-placeholder{
-        width:130px;
-        height:58px;
-        border:2px dashed #a8c4a9;
-        border-radius:10px;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        background:#f0f4f0;
-        position:relative}
-
-        .logo-placeholder::before{
-          content:'LOGO';
-          font-size:11px;
-          font-weight:700;
-          color:#7a9a7d}
-
-/* ===== AJUSTE DE LOGO ===== */
+/* LOGO GRANDE */
 .logo-img{
-  height:50px;
+  height:75px;
   width:auto;
   object-fit:contain;
 }
 
-/* Ajuste en móvil */
-@media(max-width:860px){
-  .logo-img{
-    height:38px;
-  }
+/* Links del menú */
+.nav-links{
+  display:flex;
+  gap:25px;
+  list-style:none;
 }
 
-          .nav-brand strong{
-            display:block;
-            font-family:'Playfair Display',serif;
-            font-size:16px;
-            color:var(--b)}
+.nav-links a{
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  color:#333;
+  transition:.3s;
+}
 
-            .nav-brand span
-            {font-size:11px;
-              color:var(--g);
-              font-weight:700}
+.nav-links a:hover{
+  color:var(--g);
+}
 
-              .nav-links{
-                display:flex;gap:4px;list-style:none}
+/* Botón hamburguesa */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
 
-                .nav-links a{text-decoration:none;font-size:12px;font-weight:700;color:var(--md);text-transform:uppercase;padding:8px 14px;border-radius:50px;transition:all .2s}
+.hamburger span{
+  width:26px;
+  height:3px;
+  background:#333;
+  display:block;
+  border-radius:2px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:860px){
+
+  nav{
+    height:75px;
+    padding:0 5%;
+  }
+
+  .logo-img{
+    height:55px;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:75px;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    padding:25px 0;
+    display:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+}                .nav-links a{text-decoration:none;font-size:12px;font-weight:700;color:var(--md);text-transform:uppercase;padding:8px 14px;border-radius:50px;transition:all .2s}
 
         .nav-links a:hover,.nav-links a.active{color:var(--g);background:#e8f5e9}
         
@@ -112,7 +150,7 @@ nav{
   min-height:100vh;
   background:
     linear-gradient(160deg,rgba(21,101,192,.83),rgba(46,125,50,.73)),
-    url('imagenes/interna-inversiom-de-invernaderos.webp') center/cover no-repeat;
+    url('imagenes/Untitled design (1).png') center/contain no-repeat;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -120,8 +158,7 @@ nav{
   text-align:center;
   padding:120px 5% 100px;
   position:relative;
-}  
-        .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--cr))}
+}        .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--cr))}
   
         .hero-tag{font-size:12px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:18px}
   
@@ -283,17 +320,14 @@ nav{
   transform:translateY(-3px);
 }
 .about{
+  padding:100px 8%;
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:40px;
-  padding:60px 20px;
-  flex-wrap:wrap;
+  justify-content:center;
 }
 
-.about > div{
-  flex:1;
-  min-width:300px;
+.about div{
+  max-width:850px; /* controla el ancho para que no se estire demasiado */
+  width:100%;
 }
 
 .about img{
@@ -304,7 +338,30 @@ nav{
   border-radius:20px;
   box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
+.lbl{
+  font-weight:700;
+  color:var(--g);
+  margin-bottom:10px;
+}
 
+.ttl{
+  font-size:36px;
+  margin-bottom:25px;
+}
+
+.bod{
+  text-align:justify;      /* alinea el texto en forma de bloque */
+  line-height:1.8;         /* mejora la lectura */
+  font-size:17px;
+  margin-bottom:12px;
+}
+
+/* Esto evita que la última línea quede rara */
+.bod::after{
+  content:"";
+  display:inline-block;
+  width:100%;
+}
 /* 📱 Responsive para celular */
 @media (max-width:768px){
   .about{
@@ -315,6 +372,7 @@ nav{
   .about img{
     margin-top:30px;
   }
+  
 }
 </style>
 </head>
@@ -324,8 +382,6 @@ nav{
 <a class="nav-logo" href="#">
   <img src="imagenes/Untitled design (1).png" alt="Outsourcing Support Logo" class="logo-img">
   <div class="nav-brand">
-    <strong>Outsourcing Support</strong>
-    <span>S.A.S</span>
   </div>
 </a>  <ul class="nav-links" id="nl">
     <li><a href="#nosotros">Nosotros</a></li>
@@ -427,8 +483,8 @@ nav{
         <li><strong>Aporque de camas:</strong><ul class="sub"><li>Aplicación de correctivos</li><li>Bajada de hombros</li><li>Pase con motocultor</li><li>Destape de mangueras</li></ul></li>
         <li><strong>Doble paleo mecánico:</strong> arado, cincel y subsolador</li>
         <li><strong>Doble paleo manual:</strong> áreas de difícil acceso</li>
-        <li><strong>Tutorado parales:</strong> cuatro parales en repisa por cama</li>
-        <li><strong>Cortinas intermedias:</strong> número según necesidad</li>
+        <li><strong>instalacion de parales</strong> </li>
+        <li><strong>Cortinas intermedias</strong></li>
         <li><strong>Camas confinadas e hidropónicas</strong></li>
       </ul>
     </div>
@@ -438,12 +494,12 @@ nav{
     <div class="stxt">
       <span class="stag">Infraestructura</span>
       <h3>Mantenimiento de Invernaderos</h3>
-      <p>Servicio integral de mantenimiento, renovación y operación de infraestructura de invernaderos. Incluye <strong>base de datos</strong> con fechas de cambio y lavado.</p>
+      <p>Servicio integral de mantenimiento, renovación e infraestructura de invernaderos.</p>
       <ul class="slist">
-        <li><strong>Cambio de cubierta:</strong><ul class="sub"><li>Desmontaje cubierta anterior</li><li>Mantenimiento estructural</li><li>Cambio guayas deterioradas</li><li>Revisión anclajes</li><li>Instalación nueva cubierta</li></ul></li>
+        <li><strong>Cambio de cubierta:</strong><ul class="sub"><li>Desmontaje cubierta anterior</li><li>Mantenimiento estructural</li><li>Cambio guayas deterioradas</li><li>Sistema de anclajes</li><li>Instalación nueva cubierta</li></ul></li>
         <li><strong>Cerramientos fijos y móviles</strong></li>
-        <li><strong>Lavado de polietileno:</strong> con cepillos de espuma según cronograma</li>
-        <li><strong>Personal para alturas:</strong> con permisos vigentes</li>
+        <li><strong>Lavado de polietileno:</strong>Cubierta y cerramientos</li>
+        <li><strong>Suministro de personal para alturas:</strong> con permisos vigentes</li>
       </ul>
     </div>
   </div>
@@ -454,27 +510,23 @@ nav{
       <h3>Servicios Adicionales</h3>
       <p>Servicios complementarios para una gestión eficiente y sostenible.</p>
       <ul class="slist">
-        <li><strong>Programa de compostaje:</strong><ul class="sub"><li>Producción eficiente de compost</li><li>Aprovechamiento de material vegetal</li><li>Aplicación de complementos</li></ul></li>
-        <li><strong>Limpieza de reservorios:</strong> optimización de almacenamiento de aguas</li>
+        <li><strong>Programa de compostaje:</strong><ul class="sub"><li>Producción eficiente para produccion de compost</li><li>Aprovechamiento de material vegetal</li><li>Aplicación de complementos</li></ul></li>
+        <li><strong>Limpieza de reservorios:</strong> Mantenimiento, sistema de captación y sistemas de drenaje (agua, lluvia).</li>
       </ul>
-      <div class="note">El costo se determina según el programa específico.</div>
     </div>
   </div>
   <div class="srow rev">
-    <div class="simg"><img src="imagenes/poda.png" alt=""></div>
+    <div class="simg"><img src="imagenes/poda2.png" alt=""></div>
     <div class="stxt">
       <span class="stag">Manejo de Cultivos</span>
       <h3>Labor de Poda</h3>
-      <p>Servicio especializado de poda técnica de cultivos de flores, ejecutado por personal capacitado.</p>
+      <p>Servicio especializado de poda de prados, ejecutado por personal capacitado.</p>
       <ul class="slist">
-        <li><strong>Poda de formación:</strong> rosas, claveles, pompones, desbrote y poda sanitaria</li>
-        <li><strong>Deshoje y limpieza:</strong> eliminación de hojas enfermas y retiro de material vegetal</li>
-        <li><strong>Desbotone:</strong> eliminación de botones secundarios y control de calibre</li>
-        <li><strong>Entutorado y amarre:</strong> instalación de mallas e hilos</li>
-        <li><strong>Desyeme y raleo:</strong> eliminación de tallos débiles</li>
-        <li><strong>Zonas verdes:</strong> poda de césped y mantenimiento</li>
+        <li><strong>Mantenimiento zonas verdes</strong></li>
+        <li><strong>Poda con gudaña</strong></li>
+        <li><strong>Barrida del area de poda</strong></li>
+        <li><strong>Disposicion material podado</strong></li>
       </ul>
-      <div class="note"><strong>Valor agregado:</strong> Personal entrenado en identificación temprana de plagas.</div>
     </div>
   </div>
 </section>
@@ -488,23 +540,21 @@ nav{
   <p>Consulte nuestras políticas oficiales en formato PDF:</p>
 
   <div class="pdf-container">
-    <a href="pdfs/POLITICA PREVENCION AL ACOSO LABORAL.pdf" target="_blank" class="pdf-btn">
-      📄 Política de Prevención al Acoso Laboral
-    </a>
-
-<a href="pdfs/POLITICA INTEGRAL DE SEGURIDAD Y SALUD EN EL TRABAJO Y PREVENCION SUSTANCIA PSICOACTIVAS.pdf" 
-   target="_blank" 
-   class="pdf-btn">
-   📄 Política Integral de Seguridad y Salud
+<a href="pdfs/POLÍTICA PREVENCIÓN AL ACOSO LABORAL.pdf" target="_blank" class="pdf-btn">
+  📄 Política de Prevención al Acoso Laboral
 </a>
-    <a href="pdfs/POLITICA DE ACOSO SEXUAL.pdf" target="_blank" class="pdf-btn">
-      📄 Política de Acoso Sexual
-    </a>
 
-    <a href="pdfs/POLITICA DE DESCONEXION LABORAL.pdf" target="_blank" class="pdf-btn">
-      📄 Política de Desconexión Laboral
-    </a>
-  </div>
+<a href="pdfs/POLÍTICA INTEGRAL DE SEGURIDAD Y SALUD EN EL TRABAJO.pdf" target="_blank" class="pdf-btn">
+  📄 Política Integral de Seguridad y Salud en el Trabajo
+</a>
+
+<a href="pdfs/POLITICA ACOSO SEXUAL.pdf" target="_blank" class="pdf-btn">
+  📄 Política de Acoso Sexual
+</a>
+
+<a href="pdfs/POLÍTICA DE DESCONEXIÓN LABORAL.pdf" target="_blank" class="pdf-btn">
+  📄 Política de Desconexión Laboral
+</a>  </div>
 </section>
 <section id="contacto" class="contact">
   <div>
@@ -521,7 +571,7 @@ nav{
 </section>
 
 <footer>
-  <p><strong>Outsourcing Support S.A.S</strong> — Nuestras Acciones son sus Soluciones | Facatativá, Colombia</p>
+  <p>Copyright © 2025 <strong>Outsourcing Support S.A.S</strong> — Nuestras Acciones son sus Soluciones | Facatativá, Colombia</p>
 </footer>
 <script>
 const bar=document.getElementById('bar');window.addEventListener('scroll',()=>{bar.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%'},{passive:true});document.getElementById('hb').addEventListener('click',()=>document.getElementById('nl').classList.toggle('open'));document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nl').classList.remove('open')));
