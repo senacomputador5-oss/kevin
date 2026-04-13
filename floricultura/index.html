@@ -351,14 +351,15 @@ nav{
 
 .bod{
   text-align: justify;
-  text-align-last: left;   /* evita que la última línea se deforme */
+  text-align-last: left;
   line-height: 1.6;
   font-size: 17px;
   margin-bottom: 12px;
 
-  hyphens: auto;           /* divide palabras largas automáticamente */
-  word-break: normal;
-  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+
+  word-spacing: -0.5px;
 }
 
 /* Esto evita que la última línea quede rara */
