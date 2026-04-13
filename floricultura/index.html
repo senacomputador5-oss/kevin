@@ -350,10 +350,15 @@ nav{
 }
 
 .bod{
-  text-align: left;     /* evita espacios irregulares */
-  line-height: 1.6;     /* un poco más equilibrado que 1.8 */
+  text-align: justify;
+  text-align-last: left;   /* evita que la última línea se deforme */
+  line-height: 1.6;
   font-size: 17px;
   margin-bottom: 12px;
+
+  hyphens: auto;           /* divide palabras largas automáticamente */
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 /* Esto evita que la última línea quede rara */
