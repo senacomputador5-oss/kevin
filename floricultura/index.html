@@ -349,20 +349,21 @@ nav{
   margin-bottom:25px;
 }
 
-.bod{
+.bod {
   text-align: justify;
-  text-align-last: left;
+  text-justify: inter-word; /* fuerza mejor distribución */
+
   line-height: 1.6;
   font-size: 17px;
 
   hyphens: auto;
   -webkit-hyphens: auto;
 
-  text-wrap: pretty;
+  overflow-wrap: break-word;
+  word-break: normal;
 
-  /* micro ajustes */
-  letter-spacing: 0.2px;
-  word-spacing: -0.6px;
+  letter-spacing: 0.1px;
+  word-spacing: -0.3px;
 }
 
 /* Esto evita que la última línea quede rara */
