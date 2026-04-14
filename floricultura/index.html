@@ -350,7 +350,20 @@ nav{
 }
 
 .bod {
-  max-width: 600px; /* o 500-700px ideal */
+  text-align: justify;
+  text-justify: inter-word; /* fuerza mejor distribución */
+
+  line-height: 1.6;
+  font-size: 17px;
+
+  hyphens: auto;
+  -webkit-hyphens: auto;
+
+  overflow-wrap: break-word;
+  word-break: normal;
+
+  letter-spacing: 0.1px;
+  word-spacing: -0.3px;
 }
 
 /* Esto evita que la última línea quede rara */
